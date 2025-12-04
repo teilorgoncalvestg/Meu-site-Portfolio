@@ -1,0 +1,1 @@
+<ul><li>HTML5, CSS3, JavaScript ES6+</li><li>Python, PHP, C#</li><li>Git &amp; GitHub</li><li>Responsividade e boas práticas de UX/UI</li><li>Consumo de APIs REST</li><li>Bancos de Dados (MySQL, MongoDB)</li></ul>

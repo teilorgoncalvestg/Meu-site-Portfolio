@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Estrutura do Projeto | Meu site Portifólio</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header style="background:#0057d8;padding:18px 0;">
+    <nav style="display:flex;align-items:center;justify-content:space-between;width:100%;padding:0 40px;" id="mainNav">
+      <div style="display:flex;align-items:center;">
+        <a href="#" class="menu-admin" style="display:flex;align-items:center;margin-right:18px;" onclick="openLoginModal(event)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="white" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </a>
+        <span style="color:white;font-size:2rem;font-weight:bold;font-family:sans-serif;letter-spacing:1px;">Meu site Portifólio</span>
+      </div>
+      
+      <!-- Botão hamburger para mobile -->
+      <button class="mobile-menu-btn" style="display:none;background:none;border:none;cursor:pointer;" onclick="toggleMobileMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 24 24">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      
+      <ul class="nav-menu" style="display:flex;gap:48px;list-style:none;margin:0;padding:0;" id="navMenu">
+        <li><a href="about.php" style="color:#fff;text-decoration:none;font-weight:500;">Sobre Mim</a></li>
+        <li><a href="portfolio.html" style="color:#fff;text-decoration:none;font-weight:500;">Projetos</a></li>
+        <li><a href="estrutura.html" class="active" style="color:#ffb400;text-decoration:none;font-weight:500;">Estrutura</a></li>
+        <li><a href="services.php" style="color:#fff;text-decoration:none;font-weight:500;">Serviços</a></li>
+        <li><a href="contact.html" style="color:#fff;text-decoration:none;font-weight:500;">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="project-structure">
+      <h1>Estrutura do site Portfólio</h1>
+      <pre>
+<code>
+/
+├── index.php           (Home)
+├── about.php           (Sobre Mim)
+├── portfolio.html      (Projetos)            
+├── estrutura.html      (Estrutura)
+├── services.php        (Serviços)
+├── contact.html        (Contato)
+├── admin_panel.php          
+├── admin_login.php          
+├── logout.php               
+├── listar_projetos.php      
+├── obter_projetos.php       
+├── remover_projeto.php      
+├── salvar_conteudo.php      
+├── salvar_projeto.php       
+├── gerar_hash.php           
+├── upload_foto.php          
+├── enviar_email.php         
+├── conteudo/                
+│   ├── projetos.json           
+│   ├── foto_perfil.txt          
+│   ├── icons/                   
+│   └── img/                     
+│       └── ...                  
+├── css/                     
+│   ├── style.css               
+│   └── admin-panel.css          
+├── js/                      
+│   ├── main.js                  
+│   ├── cropper-setup.js       
+│   └── admin-panel.js          
+├── README.md                
+├── LICENSE                  
+└── .gitignore               
+</code>
+      </pre>
+      <p>Esta é a organização dos arquivos e pastas do meu site de portfólio. Isso facilita o entendimento da estrutura e manutenção do projeto.</p>
+      <hr>
+      <h2>🛠️ Passos para Execução do site Portfólio</h2>
+      <ul>
+        <li><strong>Nome do Projeto:</strong> Site Portfólio Pessoal</li>
+        <li><strong>Tecnologias Utilizadas:</strong> HTML, CSS, JavaScript e PHP</li>
+      </ul>
+      <h3>📋 Metodologia de Desenvolvimento</h3>
+      <p>
+        Para o desenvolvimento deste projeto utilizei uma abordagem incremental, inspirada em metodologias ágeis, com entregas contínuas e evolução baseada em feedback. <br> O trabalho foi dividido em etapas, cada uma agregando novas funcionalidades e refinamentos ao site:
+      </p>
+      <ol>
+        <li><strong>Iteração 1:</strong> Estruturação inicial do projeto, definição do layout, identidade visual e organização das pastas principais.</li>
+        <li><strong>Iteração 2:</strong> Criação das páginas institucionais (Home, Sobre Mim, Projetos, Serviços, Estrutura e Contato) e implementação do design responsivo.</li>
+        <li><strong>Iteração 3:</strong> Desenvolvimento do painel administrativo, com recursos para edição de conteúdos, upload de Projetos e de foto de perfil. </li> 
+        <li><strong>Iteração 4:</strong> Integração do formulário de contato com backend em PHP para envio de e-mails, além de ajustes de usabilidade e acessibilidade.</li>
+        <li><strong>Iteração 5:</strong> Refino visual, documentação (README, licença), organização final dos arquivos e preparação para publicação.</li>
+      </ol>
+      <p>
+        Essa abordagem permitiu evoluir o projeto gradualmente, aplicar melhorias contínuas e simular o fluxo de trabalho utilizado em equipes de desenvolvimento profissional.
+      </p>
+      <h3>📈 Resultado</h3>
+      <p>
+        Um site de portfólio completo, responsivo, com painel administrativo, upload de Projetos, foto, formulário de contato funcional e código pronto para publicação e uso profissional.
+      </p>
+    </section>
+  </main>
+
+<!-- Modal Login -->
+<div id="loginModal" style="display:none;position:fixed;top:0;left:0;width:25vw;height:100vh;background:rgba(0,87,216,0.85);z-index:999;box-shadow:2px 0 16px rgba(0,0,0,0.2);align-items:flex-start;justify-content:flex-start;">
+  <div style="width:100%;padding:32px 24px;color:#fff;">
+    <h2 style="margin-top:0;margin-bottom:16px;font-size:1.3em;text-align:center;">Login Admin</h2>
+    <form method="POST" action="admin_login.php">
+      <label for="usuario" style="display:block;margin-bottom:8px;">Usuário:</label>
+      <input type="text" id="usuario" name="usuario" style="width:100%;padding:8px;margin-bottom:16px;border-radius:6px;border:1px solid #ccc;">
+      <label for="senha" style="display:block;margin-bottom:8px;">Senha:</label>
+      <input type="password" id="senha" name="senha" style="width:100%;padding:8px;margin-bottom:16px;border-radius:6px;border:1px solid #ccc;">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <button type="submit" style="background:#007bff;color:#fff;padding:8px 16px;border:none;border-radius:6px;cursor:pointer;">Entrar</button>
+        <button type="button" onclick="closeLoginModal()" style="background:#ccc;color:#333;padding:8px 16px;border:none;border-radius:6px;cursor:pointer;">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+  <style>
+  @media (max-width: 600px) {
+    #loginModal {
+      width: 90vw !important;
+      min-width: unset !important;
+      left: 0 !important;
+      border-radius: 0 !important;
+    }
+  }
+  
+  /* Estilos do menu mobile */
+  @media (max-width: 768px) {
+    .mobile-menu-btn {
+      display: block !important;
+    }
+    
+    .nav-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: #0057d8;
+      flex-direction: column !important;
+      padding: 1rem 0;
+      gap: 0 !important;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    
+    .nav-menu.active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .nav-menu li {
+      text-align: center;
+      padding: 0.5rem 0;
+    }
+    
+    .nav-menu li a {
+      display: block;
+      padding: 0.8rem 1rem;
+      border-radius: 4px;
+      margin: 0 1rem;
+      transition: background 0.2s;
+    }
+    
+    .nav-menu li a:hover,
+    .nav-menu li a.active {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
+    #mainNav {
+      position: relative;
+    }
+  }
+  </style>
+
+  <script>
+  function openLoginModal(e) {
+    e.preventDefault();
+    document.getElementById('loginModal').style.display = 'flex';
+  }
+  function closeLoginModal() {
+    document.getElementById('loginModal').style.display = 'none';
+  }
+  
+  function toggleMobileMenu() {
+    const navMenu = document.getElementById('navMenu');
+    navMenu.classList.toggle('active');
+  }
+  
+  // Fechar menu ao clicar em um link
+  document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navMenu').classList.remove('active');
+      });
+    });
+  });
+  </script>
+  <footer>
+    <p>&copy; 2025 Site Portfólio — Desenvolvido por Teilor Gonçalves. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>

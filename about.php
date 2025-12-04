@@ -1,0 +1,186 @@
+<?php
+session_start();
+$foto_perfil = '';
+$usar_avatar_padrao = true;
+
+if (file_exists('conteudo/foto_perfil.txt')) {
+    $foto_perfil = trim(file_get_contents('conteudo/foto_perfil.txt'));
+    // Verifica se o arquivo da imagem realmente existe
+    if ($foto_perfil && file_exists('conteudo/img/' . $foto_perfil)) {
+        $usar_avatar_padrao = false;
+    }
+}
+?>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sobre Mim | Meu site Portifólio</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header style="background:#0057d8;padding:18px 0;">
+    <nav style="display:flex;align-items:center;justify-content:space-between;width:100%;padding:0 40px;" id="mainNav">
+      <div style="display:flex;align-items:center;">
+        <a href="#" class="menu-admin" style="display:flex;align-items:center;margin-right:18px;" onclick="openLoginModal(event)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="white" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </a>
+        <span style="color:white;font-size:2rem;font-weight:bold;font-family:sans-serif;letter-spacing:1px;">Meu site Portifólio</span>
+      </div>
+      
+      <!-- Botão hamburger para mobile -->
+      <button class="mobile-menu-btn" style="display:none;background:none;border:none;cursor:pointer;" onclick="toggleMobileMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 24 24">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      
+      <ul class="nav-menu" style="display:flex;gap:48px;list-style:none;margin:0;padding:0;" id="navMenu">
+        <li><a href="about.php" class="active" style="color:#ffb400;text-decoration:none;font-weight:500;">Sobre Mim</a></li>
+        <li><a href="portfolio.html" style="color:#fff;text-decoration:none;font-weight:500;">Projetos</a></li>
+        <li><a href="estrutura.html" style="color:#fff;text-decoration:none;font-weight:500;">Estrutura</a></li>
+        <li><a href="services.php" style="color:#fff;text-decoration:none;font-weight:500;">Serviços</a></li>
+        <li><a href="contact.html" style="color:#fff;text-decoration:none;font-weight:500;">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="about">
+      <?php
+      $titulo_sobre = file_exists('conteudo/titulo_sobre.txt') ? trim(file_get_contents('conteudo/titulo_sobre.txt')) : 'Sobre Mim';
+      $titulo_habilidades = file_exists('conteudo/titulo_habilidades.txt') ? trim(file_get_contents('conteudo/titulo_habilidades.txt')) : 'Habilidades';
+      $titulo_formacao = file_exists('conteudo/titulo_formacao.txt') ? trim(file_get_contents('conteudo/titulo_formacao.txt')) : 'Formação';
+      $titulo_certificados = file_exists('conteudo/titulo_certificados.txt') ? trim(file_get_contents('conteudo/titulo_certificados.txt')) : 'Certificados';
+      $sobre = file_exists('conteudo/sobre.txt') ? file_get_contents('conteudo/sobre.txt') : '';
+      $habilidades = file_exists('conteudo/habilidades.txt') ? file_get_contents('conteudo/habilidades.txt') : '';
+      $formacao = file_exists('conteudo/formacao.txt') ? file_get_contents('conteudo/formacao.txt') : '';
+      $certificados = file_exists('conteudo/certificados.txt') ? file_get_contents('conteudo/certificados.txt') : '';
+      ?>
+      <h1><?php echo htmlspecialchars($titulo_sobre); ?></h1>
+      <?php if ($usar_avatar_padrao): ?>
+        <div class="profile-img" style="width:180px;height:180px;border-radius:50%;margin:0 auto 2rem auto;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);color:rgba(255,255,255,0.8);font-size:4rem;position:relative;overflow:hidden;border:4px solid #eee;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:60%;height:60%;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </div>
+      <?php else: ?>
+        <img src="conteudo/img/<?php echo htmlspecialchars($foto_perfil); ?>" alt="Foto de perfil" class="profile-img">
+      <?php endif; ?>
+      <p><?php echo $sobre; ?></p>
+      <strong><?php echo htmlspecialchars($titulo_habilidades); ?>:</strong>
+      <?php echo $habilidades; ?>
+      <strong><?php echo htmlspecialchars($titulo_formacao); ?>:</strong>
+      <?php echo $formacao; ?>
+      <strong><?php echo htmlspecialchars($titulo_certificados); ?>:</strong>
+      <?php echo $certificados; ?>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Site Portfólio — Desenvolvido por Teilor Gonçalves. Todos os direitos reservados.</p>
+  </footer>
+  <!-- Modal Login -->
+  <div id="loginModal" style="display:none;position:fixed;top:0;left:0;width:25vw;height:100vh;background:rgba(0,87,216,0.85);z-index:999;box-shadow:2px 0 16px rgba(0,0,0,0.2);align-items:flex-start;justify-content:flex-start;">
+    <div style="width:100%;padding:32px 24px;color:#fff;">
+      <h2 style="margin-top:0;margin-bottom:16px;font-size:1.3em;text-align:center;">Login Admin</h2>
+      <form method="POST" action="admin_login.php">
+        <label for="usuario" style="display:block;margin-bottom:8px;">Usuário:</label>
+        <input type="text" id="usuario" name="usuario" style="width:100%;padding:8px;margin-bottom:16px;border-radius:6px;border:1px solid #ccc;">
+        <label for="senha" style="display:block;margin-bottom:8px;">Senha:</label>
+        <input type="password" id="senha" name="senha" style="width:100%;padding:8px;margin-bottom:16px;border-radius:6px;border:1px solid #ccc;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <button type="submit" style="background:#007bff;color:#fff;padding:8px 16px;border:none;border-radius:6px;cursor:pointer;">Entrar</button>
+          <button type="button" onclick="closeLoginModal()" style="background:#ccc;color:#333;padding:8px 16px;border:none;border-radius:6px;cursor:pointer;">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <style>
+  @media (max-width: 600px) {
+    #loginModal {
+      width: 90vw !important;
+      min-width: unset !important;
+      left: 0 !important;
+      border-radius: 0 !important;
+    }
+  }
+  
+  /* Estilos do menu mobile */
+  @media (max-width: 768px) {
+    .mobile-menu-btn {
+      display: block !important;
+    }
+    
+    .nav-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: #0057d8;
+      flex-direction: column !important;
+      padding: 1rem 0;
+      gap: 0 !important;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    
+    .nav-menu.active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .nav-menu li {
+      text-align: center;
+      padding: 0.5rem 0;
+    }
+    
+    .nav-menu li a {
+      display: block;
+      padding: 0.8rem 1rem;
+      border-radius: 4px;
+      margin: 0 1rem;
+      transition: background 0.2s;
+    }
+    
+    .nav-menu li a:hover,
+    .nav-menu li a.active {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
+    #mainNav {
+      position: relative;
+    }
+  }
+  </style>
+
+  <script>
+  function openLoginModal(e) {
+    e.preventDefault();
+    document.getElementById('loginModal').style.display = 'flex';
+  }
+  function closeLoginModal() {
+    document.getElementById('loginModal').style.display = 'none';
+  }
+  
+  function toggleMobileMenu() {
+    const navMenu = document.getElementById('navMenu');
+    navMenu.classList.toggle('active');
+  }
+  
+  // Fechar menu ao clicar em um link
+  document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navMenu').classList.remove('active');
+      });
+    });
+  });
+  </script>
+</body>
+</html>

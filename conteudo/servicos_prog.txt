@@ -1,0 +1,1 @@
+<ul><li>Projetos personalizados em <strong>Python</strong> (automação, web, scripts, análise de dados)</li><li>Desenvolvimento de sistemas e sites em <strong>PHP</strong></li><li>Aplicações e integrações com <strong>JavaScript</strong> (front-end, back-end, Node.js)</li><li>Criação de páginas e layouts modernos com <strong>HTML &amp; CSS</strong></li></ul>

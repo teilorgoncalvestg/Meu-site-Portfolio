@@ -1,0 +1,738 @@
+/* Cabeçalho colado: ícone + texto */
+header {
+  background: #0057d8;
+  padding: 18px 0;
+  display: flex;
+  align-items: center;
+}
+header > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 24px;
+}
+:root {
+  --primary: #0052cc;
+  --secondary: #f4f4f4;
+  --text: #333;
+  --accent: #ffb400;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--secondary);
+  color: var(--text);
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--primary);
+  padding: 1rem 2rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+  color: var(--accent);
+}
+
+.hero {
+  text-align: center;
+  padding: 4rem 2rem 2rem 2rem;
+  background: #fff;
+}
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 0 auto 2rem auto;
+  display: block;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.hero h2 {
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.btn {
+  background: var(--primary);
+  color: #fff;
+  padding: 0.7rem 2rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 1.5rem;
+  display: inline-block;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background: var(--accent);
+  color: var(--text);
+}
+
+.about,
+.portfolio,
+.services,
+.contact {
+  max-width: 800px;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.project-card {
+  background: var(--secondary);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+  padding: 1rem;
+  width: 260px;
+  text-align: center;
+}
+
+.project-card img {
+  width: 100%;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  height: 140px;
+  object-fit: cover;
+}
+
+.project-card h2 {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.project-card p {
+  font-size: 1rem;
+  margin: 0.5rem 0 1rem 0;
+}
+
+.project-card a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.services ul {
+  padding-left: 1.2rem;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.contact label {
+  font-weight: bold;
+}
+
+.contact input,
+.contact textarea {
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.social {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.social a {
+  color: var(--primary);
+  text-decoration: none;
+  margin: 0 0.5rem;
+  font-weight: bold;
+}
+
+footer {
+  background: var(--primary);
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* MEDIA QUERIES - RESPONSIVIDADE MÓVEL */
+
+/* Tablets e telas médias */
+@media (max-width: 1024px) {
+  .about, .portfolio, .services, .contact {
+    max-width: 95%;
+    margin: 2rem auto;
+    padding: 1.5rem;
+  }
+  
+  .hero {
+    padding: 3rem 1.5rem 2rem 1.5rem;
+  }
+  
+  .projects {
+    gap: 1.5rem;
+  }
+  
+  .project-card {
+    width: calc(50% - 1rem);
+    min-width: 280px;
+  }
+  
+  /* Estrutura de projeto para tablets */
+  .project-structure pre {
+    font-size: 0.95rem;
+    line-height: 1.5rem;
+    padding: 1.5rem;
+    max-width: 85%;
+    transform: scale(0.95);
+    transform-origin: top center;
+  }
+  
+  .project-structure h1,
+  .project-structure h2 {
+    font-size: 1.7rem;
+  }
+}
+
+/* Smartphones e tablets pequenos */
+@media (max-width: 768px) {
+  /* Remove scroll horizontal - força conteúdo a caber na tela */
+  body {
+    overflow-x: hidden !important;
+  }
+  
+  .project-structure {
+    max-width: 100vw;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+  
+  /* Força todos os elementos a respeitarem a largura da tela */
+  * {
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+  }
+  
+  .project-structure pre {
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    word-break: break-all !important;
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding-right: 0.5rem !important;
+  }
+  
+  /* Navegação mobile */
+  header nav {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  header nav div {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  header nav ul {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  header nav ul li a {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background 0.2s;
+  }
+  
+  header nav ul li a:hover,
+  header nav ul li a.active {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Seção hero */
+  .hero {
+    padding: 2rem 1rem;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+  
+  .hero h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+  
+  .profile-img {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Avatar padrão mobile */
+  .profile-avatar-default {
+    font-size: 3rem;
+  }
+  
+  /* Seções principais */
+  .about, .portfolio, .services, .contact {
+    margin: 1rem;
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+  
+  /* Container da estrutura mais compacto no mobile */
+  .project-structure {
+    margin: 0.2rem;
+    padding: 0.4rem;
+    max-width: 100vw;
+    box-sizing: border-box;
+  }
+  
+  /* Projetos em grid único */
+  .projects {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .project-card {
+    width: 100%;
+    margin-bottom: 0;
+  }
+  
+  /* Formulários */
+  .contact input,
+  .contact textarea {
+    font-size: 16px; /* Evita zoom em iOS */
+  }
+  
+  /* Estrutura de projeto */
+  .project-structure pre {
+    font-size: 0.7rem;
+    line-height: 1.2;
+    padding: 0.3rem;
+    margin: 0.3rem 0;
+    overflow-x: hidden;
+    border-radius: 3px;
+    transform: none;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    word-break: break-all;
+    width: 100%;
+    max-width: calc(100vw - 1rem);
+    box-sizing: border-box;
+  }
+  
+  .project-structure h1,
+  .project-structure h2 {
+    font-size: 1.4rem;
+  }
+  
+  .project-structure {
+    overflow-x: hidden;
+  }
+}
+
+/* Smartphones pequenos */
+@media (max-width: 480px) {
+  /* Navegação ultra compacta */
+  header nav {
+    padding: 0.8rem;
+  }
+  
+  header nav div span {
+    font-size: 1.5rem;
+  }
+  
+  header nav ul {
+    gap: 0.5rem;
+  }
+  
+  header nav ul li a {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.7rem;
+  }
+  
+  /* Hero compacto */
+  .hero {
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  
+  .hero h2 {
+    font-size: 1.1rem;
+  }
+  
+  .hero p {
+    font-size: 0.9rem;
+  }
+  
+  .profile-img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  /* Avatar padrão mobile pequeno */
+  .profile-avatar-default {
+    font-size: 2.5rem;
+  }
+  
+  /* Seções compactas */
+  .about, .portfolio, .services, .contact {
+    margin: 0.5rem;
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .project-card {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .project-card h2 {
+    font-size: 1.1rem;
+  }
+  
+  .btn {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Estrutura ainda mais compacta */
+  .project-structure pre {
+    font-size: 0.6rem;
+    line-height: 1.1;
+    padding: 0.2rem;
+    margin-bottom: 0.3rem;
+    border-radius: 2px;
+    overflow-x: hidden;
+    transform: none;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    word-break: break-all;
+    width: 100%;
+    max-width: calc(100vw - 0.5rem);
+    box-sizing: border-box;
+  }
+  
+  .project-structure h1,
+  .project-structure h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .project-structure {
+    padding: 0.2rem 0.1rem;
+    margin: 0.1rem;
+    overflow-x: hidden;
+    max-width: 100vw;
+    box-sizing: border-box;
+  }
+}
+
+/* Micro dispositivos */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+  
+  .about, .portfolio, .services, .contact {
+  /* Esconde o menu por padrão no mobile */
+  .nav-menu {
+    display: none !important;
+  }
+  /* Exibe o menu quando ativo */
+  .nav-menu.active {
+    display: flex !important;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    background: #0057d8;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 1000;
+    padding: 1rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+    margin: 0.3rem;
+    padding: 0.8rem;
+  }
+  
+  header nav div span {
+    font-size: 1.3rem;
+  }
+  
+  /* Estrutura ultra compacta para micro telas */
+  .project-structure pre {
+    font-size: 0.5rem !important;
+    line-height: 1.0 !important;
+    padding: 0.15rem !important;
+    margin-bottom: 0.2rem !important;
+    overflow-x: hidden !important;
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    word-break: break-all !important;
+    width: 100% !important;
+    max-width: calc(100vw - 0.2rem) !important;
+    box-sizing: border-box !important;
+    transform: none !important;
+    border-radius: 1px !important;
+  }
+  
+  .project-structure h1,
+  .project-structure h2 {
+    font-size: 1rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .project-structure {
+    padding: 0.1rem 0.05rem !important;
+    margin: 0.05rem !important;
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* OTIMIZAÇÕES GERAIS PARA RESPONSIVIDADE */
+
+/* Garante que imagens e vídeos nunca estourem o container */
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Corrige tabelas e pre para overflow em telas pequenas */
+table, pre, code {
+  max-width: 100%;
+  overflow-x: auto;
+  word-break: break-word;
+}
+
+/* Flexbox para garantir alinhamento em cards e listas */
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: center;
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent zoom on form inputs in iOS */
+input, textarea, select {
+  font-size: 16px;
+}
+
+/* Melhor experiência de toque */
+button, a, input[type="submit"] {
+  -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+  touch-action: manipulation;
+}
+
+/* Otimizações de performance para animações */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container principal responsivo */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Utility classes para responsividade */
+.hide-mobile {
+  display: block;
+}
+
+.show-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none !important;
+  }
+  
+  .show-mobile {
+    display: block !important;
+  }
+  
+  /* Melhor espaçamento para toque */
+  button, .btn, a {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Textos mais legíveis em mobile */
+  p, li {
+    line-height: 1.6;
+  }
+  
+  /* Headers com melhor hierarquia visual */
+  h1 { font-size: 1.8rem; line-height: 1.2; }
+  h2 { font-size: 1.4rem; line-height: 1.3; }
+  h3 { font-size: 1.2rem; line-height: 1.4; }
+}
+
+.project-structure pre {
+  background: #23272f;
+  color: #d4d4d4;
+  padding: 2.2rem 2rem;
+  border-radius: 14px;
+  font-size: 1.35rem;    /* Aumenta o tamanho da fonte */
+  line-height: 2.3rem;   /* Espaçamento entre linhas */
+  overflow-x: auto;
+  margin-bottom: 2.7rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+  max-width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
+}
+
+.project-structure h2,
+.project-structure h1 {
+  margin-bottom: 0.9rem;
+  font-size: 2.1rem;
+  text-align: center;
+}
+
+.project-structure p {
+    text-align: center;
+    margin-top: 20px;
+}
+.profile-img {
+    width: 180px;   /* aumente este valor conforme desejar */
+    height: 180px;  /* aumente este valor conforme desejar */
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+/* ...existing code... */
+.hero {
+  text-align: center;
+  padding: 3rem 2rem 2rem 2rem; /* ajuste o valor superior conforme desejar */
+  background: #fff;
+}
+
+.profile-img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  object-position: center top; /* ou center center, se preferir */
+  border-radius: 50%;
+  border: 4px solid #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  display: block;
+  margin: 0 auto 24px auto;
+}
+
+/* Avatar padrão quando não há imagem */
+.profile-img.profile-avatar-default {
+  background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%) !important;
+  color: white !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 4rem !important;
+  position: relative !important;
+  overflow: hidden !important;
+  border: 4px solid #eee !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+  object-fit: unset !important;
+}
+
+.profile-avatar-default::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.profile-avatar-default svg {
+  width: 60%;
+  height: 60%;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}

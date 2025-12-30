@@ -12,14 +12,13 @@ Este é um projeto de site de portfólio pessoal desenvolvido em HTML, CSS, Java
 - Layout responsivo para todos os dispositivos
 
 ## Como usar
-1. Faça o clone do repositório
-2. Coloque os arquivos em um servidor local (XAMPP, WAMP, etc.) ou publique em uma hospedagem PHP
-3. Acesse `index.php` ou `index.html` pelo navegador
-4. Use o painel administrativo para gerenciar conteúdos
+1-Acesse o link 
 
 ## Observações
-- O envio de e-mails funciona apenas em hospedagem real ou com SMTP configurado no localhost
-- Imagens de perfil e projetos são salvas na pasta `conteudo/img/`
+- Este repositório contém o código-fonte do meu site portfólio, desenvolvido com o objetivo de apresentar de forma clara e profissional meus projetos, experiências e habilidades em desenvolvimento web.
+
+O site foi criado para oferecer uma experiência visual agradável e organizada, permitindo que empresas e clientes conheçam quem eu sou, o que faço e os projetos que desenvolvi até o momento. Também conta com um canal de contato direto, facilitando a comunicação para oportunidades profissionais e prestação de serviços.
 
 ## Autor
 Teilor Gonçalves
+
